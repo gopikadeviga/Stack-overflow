@@ -6,20 +6,22 @@ const EditProfileForm = ({ currentUser, setSwitch }) => {
    
     const [name, setName] = useState(currentUser?.result?.name)
     const [about, setAbout] = useState(currentUser?.result?.about)
-    const [tags, setTags] = useState('')
-
+    const [tags, setTags] = useState([])
     const dispatch = useDispatch();
 
+    console.log(tags);
+
   const handelSubmit = (e) => {
-  e.preventDefault()
-  if( tags.length === 0){
-      dispatch(updateProfile(currentUser?.result?._id, { name, about, tags: currentUser?.result?.tags }))
+       e.preventDefault()
+  if( tags[0] === "" || tags.length === 0){
+      // dispatch(updateProfile(currentUser?.result?._id, { name, about, tags: currentUser?.result?.tags }))
+      alert(" Update tags field");
 }
 else{
   dispatch(updateProfile(currentUser?.result?._id, { name, about, tags }))
   }
   setSwitch(false)
-}
+};
 
   return (
     <div>
@@ -52,4 +54,4 @@ else{
   )
 }
 
-export default EditProfileForm
+export default EditProfileForm;

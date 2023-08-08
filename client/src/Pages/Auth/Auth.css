@@ -1,71 +1,69 @@
-.auth-section{
-    min-height: 100vh;/*entire size of browser*/
-     margin: 0% auto;
+.auth-section {
+    min-height: 100vh;
+    margin: 0% auto;
     background-color: #f1f2f3;
-    display: flex;/*displays the containers side by side*/
-    justify-content: center;/*move the contents from the margin to center*/
-    align-items: center;/*content will be displayed at the center of the page*/
-} 
-
-.auth-container-1{
-    padding:20px;
-    margin: 30px;
-}
-
-.login-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .auth-container-1 {
+    padding: 20px;
+    margin-right: 30px;
+  }
+  
+  .login-logo {
     padding: 20px 30px;
-}
-
-.auth-container-2{
+  }
+  
+  .auth-container-2 {
     min-width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.auth-container-2 form{
-    width: 100%;
-    padding: 20px;
+  }
+  
+  .auth-container-2 form {
+    width: 90%;
+    padding: 10px;
     background-color: white;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;/*displays one down the other*/
-    box-shadow: 0px 10px 25px rgb(0 0 0 / 5%),/*value for shadow arround the box*/
-    /* opacity of .5 ,25-blur */
-    0 20px 48px rgb(0 0 0 /5%),
-    0 1px 4px rgb(0 0 0 / 10%);
-}
-
-.auth-container-2 form label input{
-    padding: 10px; /*gives the space and correct padding for the taext box*/
-    width: calc(100% - 30px);/* length of the text box to fit the box 
-    100% of the box - the 30 pixel from that*/
-    border: solid 1px #0000003e;/*black color 000000 with the opacity of .3*/
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%),
+      0 1px 4px rgb(0 0 0 / 10%);
+  }
+  
+  .auth-container-2 form p {
+    word-wrap: break-word;
+  }
+  
+  .auth-container-2 form label input {
+    padding: 10px;
+    width: calc(100% - 30px);
+    border: solid 1px #0000003e;
     font-size: 13px;
-}
-
-/*For the headings of the text box*/
-/*selecting only the first three labels of the container*/
-.auth-container-2 form label:nth-child(1) h4,
-.auth-container-2 form label:nth-child(2) h4,
-.auth-container-2 form label:nth-child(3) h4
-{
-    /*reduce the gap between the heading and the input box*/
-    margin: 5px;
+  }
+  
+  .auth-container-2 form label:nth-child(1) h4,
+  .auth-container-2 form label:nth-child(2) h4,
+  .auth-container-2 form label:nth-child(3) h4 {
+    margin-bottom: 5px;
     margin-top: 10px;
-}
-
-.auth-container-2 form label:nth-child(4){
+  }
+  
+  .auth-container-2 form label:nth-child(4) {
     display: flex;
-}
-.auth-container-2 form label:nth-child(4) input{
-    width: auto;
-    margin: 8px;
-    margin-top: -45px;
-} 
-
-.auth-btn{
+  }
+  
+  .auth-container-2 form label:nth-child(4) input {
+    width: 4%;
+    margin: 13px 10px;
+  }
+  
+  .auth-btn {
     margin-top: 10px;
     padding: 10px 5px;
     background-color: #009dff;
@@ -76,17 +74,22 @@
     transition: 0.2s;
     font-size: 13px;
     font-weight: 500;
-
-}
-
-.auth-btn:hover{
+  }
+  
+  .auth-btn:hover {
     background-color: #018ce3;
-}
-
-.handle-switch-btn{
+  }
+  
+  .handle-switch-btn {
     background-color: transparent;
     color: #007ac6;
-    border:none;
+    border: none;
     font-size: 13px;
-    cursor:pointer
-}
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 820px) {
+    .auth-container-1 {
+      display: none;
+    }
+  }

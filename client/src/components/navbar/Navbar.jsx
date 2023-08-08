@@ -8,8 +8,9 @@ import search from '../../assets/search-solid.svg'
 import Avatar from '../../components/Avatar/Avatar'
 import './Navbar.css'
 import { setCurrentUser } from '../../actions/currentUser'
+import bars from "../../assets/bars-solid.svg";
 
-const Navbar = () => {
+const Navbar = ({ handleSlideIn }) => {
 
   const dispatch = useDispatch();
   //Profile - key provided
@@ -37,29 +38,39 @@ const Navbar = () => {
           handleLogout();
       }
     }
-    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-  },[dispatch])
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
+  },[User?.token, dispatch])
   return (
     <nav className='main-nav'>
       <div className='navbar'>
+      <button className="slide-in-icon" onClick={() => handleSlideIn()}>
+          <img src={bars} alt="bars" width="15" />
+        </button>
+        <div className="navbar-1">
         <Link to='/' className='nav-item nav-logo'>
           <img src={logo} alt='logo'></img>
         </Link>
-        <Link to='/' className='nav-item nav-btn'>About</Link>
-        <Link to='/' className='nav-item nav-btn'>Products</Link>
-        <Link to='/' className='nav-item nav-btn'>For Teams</Link>
-        <form>
-            <input type="text" placeholder='Search...'></input>
+       
+        <Link to='/' className='nav-item nav-btn-1'>About</Link>
+        <Link to='/' className='nav-item nav-btn-1'>Products</Link>
+        <Link to='/' className='nav-item nav-btn-1'>For Teams</Link>
+        
+        <form className='search-form'>
+            <input type="text" placeholder='Search...' style={{ width: '50px' }}></input>
             <img src={search} alt="search" width="18" className='search-icon'></img>
         </form>
+        </div>
+        <div className="navbar-2">
         {User === null ? 
           <Link to='/Auth' className='nav-item nav-links'>Log in</Link> :
           <>
-              <Avatar backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color="white"><Link to={`/Users/${User?.result._id}`} style={{color:"white",textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link> </Avatar>
+              <Avatar backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color="white"><Link to={`/Users/${User?.result?._id}`} style={{color:"white",textDecoration:'none'}}>
+                {User.result.name.charAt(0).toUpperCase()}</Link> </Avatar>
               <button className='nav-item nav-links' onClick={handleLogout}>Log out</button>
           
           </> 
       }
+      </div>
       </div>
     </nav>
   )

@@ -84,7 +84,7 @@ const QuestionsDetails = () => {
   const dispatch = useDispatch()
   const User = useSelector((state) => (state.currentUserReducer))
   const location =useLocation()
-  const url = 'http://localhost:3000'
+  const url = 'https://stack-over-flow-clone-6122.netlify.app'
 
   const handlePosAns =(e, answerLength) => {
     e.preventDefault()

@@ -1,8 +1,8 @@
-import * as api from '../api'
+import * as api from '../api';
 
 export const fetchAllUsers = () => async (dispatch) => {
     try {
-        const { data } = await api.fetchAllUsers()
+        const { data } = await api.getAllUsers()
         console.log(data)
         dispatch({ type: 'FETCH_USERS', payload: data})
     } catch (error) {

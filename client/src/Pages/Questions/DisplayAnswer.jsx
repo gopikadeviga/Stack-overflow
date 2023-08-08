@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "../../components/Avatar/Avatar";
 import { deleteAnswer } from "../../actions/question"
+
 const DisplayAnswer = ({ question, handleShare }) => {
 
   const User = useSelector((state) => (state.currentUserReducer))

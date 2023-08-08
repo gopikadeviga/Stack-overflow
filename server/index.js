@@ -30,7 +30,7 @@ app.use('/answer', answerRoutes)
 
 //getting port from the environment
 //if no available port is there then 5000 will be the server port no.
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
 const DATABASE_URL = process.env.CONNECTION_URL
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true} )

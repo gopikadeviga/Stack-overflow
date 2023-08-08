@@ -1,7 +1,8 @@
 //actions are used to update,modify and provide data to the store
 //api contains all the functions inside the api folder
 import * as api from '../api'
-import { setCurrentUser } from './currentUser'
+import { setCurrentUser } from './currentUser';
+import { fetchAllUsers } from "./users";
 
 export const signup = (authData, navigate) => async (dispatch) =>{
 
@@ -9,7 +10,8 @@ export const signup = (authData, navigate) => async (dispatch) =>{
         const { data } = await api.signUp(authData)
         //AUTH type is in reducer
         dispatch({ type: 'AUTH',data})
-        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
+        dispatch(fetchAllUsers());
         navigate('/')
     }
      catch (error) {
